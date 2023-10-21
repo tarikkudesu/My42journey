@@ -1,0 +1,47 @@
+#include <unistd.h>
+int	ft_atoi(char *s)
+{
+	int	i = 0;
+	int	res = 0;
+	while (s[i])
+	{
+		res = res * 10 + s[i] - 48;
+		i++;
+	}
+	return res;
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb <= 9)
+		write(1, &"0123456789"[nb], 1);
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+}
+
+void	ft_tab_mult(int	nb)
+{
+	int	i = 1;
+	int	j = '1';
+	while (i <= 9)
+	{
+		write(1, &j, 1);
+		write(1, " x ", 3);
+		ft_putnbr(nb);
+		write(1, " = ", 3);
+		ft_putnbr(i * nb);
+		write(1, "\n", 1);
+		i++;
+		j++;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 2)
+		ft_tab_mult(ft_atoi(av[1]));
+	write(1, "\n", 1);
+}

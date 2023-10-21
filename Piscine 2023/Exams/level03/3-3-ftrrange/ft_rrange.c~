@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int	*ft_rrange(int start, int end)
+{
+	int	*res;
+	int	ran;
+
+	ran = (end >= start) ? end - start + 1 : start - end + 1;
+	if (!((int *)malloc(sizeof(int) * ran)))
+		return (NULL);
+	while (ran--)
+		res[ran] = (end >= start) ? end-- : start --;
+	return (res);
+}
+
+int	main()
+{
+	int	*r;
+	int	i;
+
+	i = 10;
+	r = ft_rrange(3, 12);
+	while (i--)
+		printf("%d\n", r[i]);
+}

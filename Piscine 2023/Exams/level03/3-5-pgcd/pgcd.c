@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned int	ft_find_denominator(int a, int b)
+{
+	int i;
+
+	i = (a >= b) ? b : a;
+	while (i > 0)
+	{
+		if (a % i == 0 && b % i == 0)
+			return i;
+		i--;
+	}
+	return 1;
+}
+
+void	ft_pgcd(char *s1, char *s2)
+{
+	unsigned int	a;
+	unsigned int	b;
+	unsigned int	cd;
+
+	a = atoi(s1);
+	b = atoi(s2);
+	cd = ft_find_denominator(a, b);
+	printf("%d", cd);
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 3)
+		ft_pgcd(av[1], av[2]);
+	printf("\n");
+	return 0;
+}
