@@ -23,8 +23,8 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-compile: $(OBJS)
-	@$(CC) $(CFLAGS) $^ -o program
+compile: $(SRCS)
+	@$(CC) $(CFLAGS) $(SRCS)
 	@${ECHO} "\n\t${GREEN}The program has been created${NONE}\n"
 
 it: compile clean
