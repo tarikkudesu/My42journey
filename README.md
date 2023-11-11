@@ -8,3 +8,7 @@ repositories that might help :
 1337 student cheatsheet : https://github.com/agavrel/42_CheatSheet
     
 1337 student subjects : https://github.com/rphlr/42-Subjects
+
+GNL : https://github.com/byaliego/get_next_line.git
+
+GNL tester : https://github.com/Tripouille/gnlTester.git
