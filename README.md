@@ -10,5 +10,6 @@ repositories that might help :
 1337 student subjects : https://github.com/rphlr/42-Subjects
 
 GNL : https://github.com/byaliego/get_next_line.git
+    https://codeberg.org/Vusk/get_next_line/src/branch/main/get_next_line_utils.c
 
 GNL tester : https://github.com/Tripouille/gnlTester.git
