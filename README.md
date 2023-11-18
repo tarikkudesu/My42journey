@@ -18,3 +18,5 @@ B2BR : https://baigal.medium.com/born2beroot-e6e26dfb50ac
 GNL tester : https://github.com/Tripouille/gnlTester.git
 
 https://github.com/48d31kh413k/1337-Cursus-42
+
+Office 2021 : https://github.com/21Z/Microsoft-Office-2021.git
