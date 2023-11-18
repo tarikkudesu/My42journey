@@ -16,3 +16,5 @@ https://codeberg.org/Vusk/get_next_line/src/branch/main/get_next_line_utils.c
 B2BR : https://baigal.medium.com/born2beroot-e6e26dfb50ac
 
 GNL tester : https://github.com/Tripouille/gnlTester.git
+
+https://github.com/48d31kh413k/1337-Cursus-42
