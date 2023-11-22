@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/12 13:46:50 by tamehri           #+#    #+#             */
+/*   Updated: 2023/11/12 13:46:50 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 int	ft_strlen(char *s)
@@ -41,7 +53,7 @@ char	*ft_strdup(char *s1)
 
 int	ft_strchr(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*(s + i))
@@ -53,12 +65,12 @@ int	ft_strchr(char *s)
 	return (-1);
 }
 
-char	*join_lines(char *stat_line, char *buffer)
+char	*ft_join_lines(char *stat_line, char *buffer)
 {
 	char	*line;
 	int		i;
 	int		j;
-	
+
 	if (!stat_line)
 		return (ft_strdup(buffer));
 	line = malloc(ft_strlen(stat_line) + ft_strlen(buffer) + 1);

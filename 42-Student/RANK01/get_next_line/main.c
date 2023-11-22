@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/12 13:46:37 by tamehri           #+#    #+#             */
+/*   Updated: 2023/11/12 13:46:37 by tamehri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int main(void) 
+int	main(void) 
 {
 	int 	fd;
 	char	*line;
@@ -9,7 +21,7 @@ int main(void)
 	if (fd == -1)
 		return (0);
 	int i = -1;
-	while (++i < 9)
+	while (++i < 4)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -17,7 +29,7 @@ int main(void)
 			free(line);
 			printf("ERROR");
 		}
-		printf("[%d]:%s\n", i, line);
+		printf("%s\n", line);
 	}
 	close(fd);
 	return (0);
