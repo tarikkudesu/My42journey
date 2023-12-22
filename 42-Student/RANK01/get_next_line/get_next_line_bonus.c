@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 09:52:05 by tamehri           #+#    #+#             */
-/*   Updated: 2023/12/06 20:21:09 by tamehri          ###   ########.fr       */
+/*   Created: 2023/12/04 09:30:29 by tamehri           #+#    #+#             */
+/*   Updated: 2023/12/04 10:37:25 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*stat;
+	static char	*stat[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
-	{
-		if (stat) // this line was added after validation
-		{
-			free(stat); // this line was added after validation
-			stat = NULL; // this line was added after validation
-		}
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
 		return (NULL);
-	}
-	stat = read_to_nl(stat, fd);
-	if (!stat)
+	stat[fd] = read_to_nl(stat[fd], fd);
+	if (!stat[fd])
 		return (NULL);
-	line = ft_before_nl(stat);
-	stat = ft_after_nl(stat);
+	line = ft_before_nl(stat[fd]);
+	stat[fd] = ft_after_nl(stat[fd]);
 	return (line);
 }
 
@@ -49,14 +42,12 @@ char	*read_to_nl(char *stat, int fd)
 		if (bytes == -1)
 		{
 			free(buff);
-			buff = NULL; // this line was added after validation
 			return (NULL);
 		}
 		*(buff + bytes) = '\0';
 		stat = ft_strjoin(stat, buff);
 	}
 	free(buff);
-	buff = NULL; // this line was added after validation
 	return (stat);
 }
 
@@ -97,13 +88,13 @@ char	*ft_after_nl(char *stat)
 	if (!*(stat + i))
 	{
 		free(stat);
-		return (stat = NULL, NULL); // This line was modified after validation (stat = NULL)
+		return (NULL);
 	}
 	line = malloc(sizeof(char) * (ft_strlen(stat + i) + 1));
 	if (!line)
 	{
 		free(stat);
-		return (stat = NULL, NULL); // This line was modified after validation (stat = NULL)
+		return (NULL);
 	}
 	i++;
 	j = 0;
@@ -111,5 +102,5 @@ char	*ft_after_nl(char *stat)
 		*(line + j++) = *(stat + i++);
 	*(line + j) = '\0';
 	free(stat);
-	return (stat = NULL, line); // This line was modified after validation (stat = NULL)
+	return (line);
 }

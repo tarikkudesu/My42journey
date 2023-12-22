@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 13:46:50 by tamehri           #+#    #+#             */
-/*   Updated: 2023/11/12 13:46:50 by tamehri          ###   ########.fr       */
+/*   Created: 2023/12/04 09:30:46 by tamehri           #+#    #+#             */
+/*   Updated: 2023/12/04 09:30:46 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -67,13 +67,13 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1)
 		s1 = ft_strdup("");
-	if (!s1 || !s2) // this condition is totaly useless as it is already allocated you can take it off
+	if (!s1 || !s2)
 		return (0);
 	res = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!res)
 	{
 		free(s1);
-		return (s1 = NULL, NULL); // This line was modified after validation (s1 = NULL)
+		return (NULL);
 	}
 	i = -1;
 	while (*(s1 + ++i))
@@ -83,6 +83,5 @@ char	*ft_strjoin(char *s1, char *s2)
 		*(res + i++) = *(s2 + j++);
 	*(res + i) = '\0';
 	free(s1);
-	s1 = NULL; // this line was added after validation
 	return (res);
 }
