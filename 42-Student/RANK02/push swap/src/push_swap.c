@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:46:24 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/04 19:28:59 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 17:39:53 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ int	ft_doubles(t_list **stack_a)
 {
 	t_list	*tmp;
 	t_list	*stack;
-	int		i;
 
 	stack = *stack_a;
 	while (stack->next)
 	{
-		i = 0;
 		tmp = stack->next;
 		while (tmp)
 		{
@@ -71,11 +69,6 @@ void	ft_index(t_list **stack_a)
 	}
 }
 
-void	fi(void)
-{
-	system("leaks push_swap");
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -88,9 +81,6 @@ int	main(int argc, char **argv)
 	ft_init_stack(&stack_a, argv + 1);
 	if (!ft_doubles(&stack_a))
 		ft_exit(&stack_a, NULL, NULL);
-	printf("\033[1;32mInitial stat :\n");
-	// ft_print(stack_a);
-	// printf("\033[0m\n");
 	sort_stack(&stack_a, &stack_b);
 	free_stacks(&stack_a, &stack_b);
 }

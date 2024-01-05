@@ -6,11 +6,11 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:40:29 by tamehri           #+#    #+#             */
-/*   Updated: 2023/12/18 18:35:31 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:41:28 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
 int	ft_isspace(char c)
 {

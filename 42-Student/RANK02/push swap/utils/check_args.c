@@ -12,33 +12,18 @@
 
 #include "../include/push_swap.h"
 
-void	f(void)
-{
-	system("leaks push_swap");
-}
-
 void	free_stacks(t_list **a, t_list **b)
 {
 	if (a)
 	{
-		ft_lstclear(a, &free);
+		ft_lstclear(a);
 		*a = NULL;
 	}
 	if (b)
 	{
-		ft_lstclear(b, &free);
+		ft_lstclear(b);
 		*b = NULL;
 	}
-}
-
-void	ft_exit(t_list **a, t_list **b, char **args)
-{
-	if (args)
-		ft_free_arr(args);
-	free_stacks(a, b);
-	ft_putstr_fd("ERROR\n", 1);
-	atexit(f);
-	exit(1);
 }
 
 void	ft_free_arr(char **tab)
@@ -49,6 +34,15 @@ void	ft_free_arr(char **tab)
 	while (*(tab + i))
 		free(*(tab + i++));
 	free(tab);
+}
+
+void	ft_exit(t_list **a, t_list **b, char **args)
+{
+	if (args)
+		ft_free_arr(args);
+	free_stacks(a, b);
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
 }
 
 int	ft_isnumber(char *str)

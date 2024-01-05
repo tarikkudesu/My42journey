@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:18:27 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/04 19:15:10 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 09:58:21 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ t_list	*ft_lstnew(int data)
 	head->next = NULL;
 	head->previous = NULL;
 	return (head);
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -48,6 +42,22 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp->next = new;
 	new->previous = temp;
 	(*lst)->previous = new;
+}
+
+void	ft_lstclear(t_list **lst)
+{
+	t_list	*temp;
+
+	if (!*lst)
+		return ;
+	temp = *lst;
+	while (lst && *lst)
+	{
+		temp = temp->next;
+		free(*lst);
+		*lst = temp;
+	}
+	*lst = NULL;
 }
 
 unsigned int	ft_lstsize(t_list *lst)

@@ -6,88 +6,107 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:56:40 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/04 19:18:40 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 16:26:31 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	loop_rrr(t_list **a, t_list **b, t_list *cur, t_list *target)
+int	loop_rrr(t_list **a, t_list **b, t_list *cur, t_list *target)
 {
 	while (cur->data != (*a)->data
-			&& target->data != (*b)->data)
-		rrr(a, b);
+		&& target->data != (*b)->data)
+		if (!rrr(a, b))
+			return (0);
 	while (cur->data != (*a)->data)
-		rra(a);
+		if (!rra(a))
+			return (0);
 	while (target->data != (*b)->data)
-		rrb(b);
+		if (!rrb(b))
+			return (0);
+	return (1);
 }
 
-void	loop_rr(t_list **a, t_list **b, t_list *cur, t_list *target)
+int	loop_rr(t_list **a, t_list **b, t_list *cur, t_list *target)
 {
 	while (cur->data != (*a)->data
-			&& target->data != (*b)->data)
-		rr(a, b);
+		&& target->data != (*b)->data)
+		if (!rr(a, b))
+			return (0);
 	while (cur->data != (*a)->data)
-		ra(a);
+		if (!ra(a))
+			return (0);
 	while (target->data != (*b)->data)
-		rb(b);
+		if (!rb(b))
+			return (0);
+	return (1);
 }
 
-void	loop_single(t_list **a, t_list **b, t_list *cur, t_list *target)
+int	loopsingle(t_list **a, t_list **b, t_list *cur, t_list *target)
 {
 	if (cur->position <= ft_lstsize(*a) / 2)
+	{
 		while (cur->data != (*a)->data)
-			ra(a);
+			if (!ra(a))
+				return (0);
+	}
 	else
+	{
 		while (cur->data != (*a)->data)
-			rra(a);
+			if (!rra(a))
+				return (0);
+	}
 	if (target->position <= ft_lstsize(*b) / 2)
+	{
 		while (target->data != (*b)->data)
-			rb(b);
+			if (!rb(b))
+				return (0);
+	}
 	else
+	{
 		while (target->data != (*b)->data)
-			rrb(b);
+			if (!rrb(b))
+				return (0);
+	}
+	return (1);
 }
 
-void	bring_to_top(t_list **a, t_list **b, t_list *cur, t_list *target)
+int	bring_top(t_list **a, t_list **b, t_list *cur, t_list *target)
 {
 	if (cur->position > ft_lstsize(*a) / 2
-			&& target->position > ft_lstsize(*b) / 2)
-		loop_rrr(a, b, cur, target);
-	else if (cur->position <= ft_lstsize(*a) / 2
-			&& target->position <= ft_lstsize(*b) / 2)
-		loop_rr(a, b, cur, target);
-	else
-		loop_single(a, b, cur, target);	
-}
-
-t_list	*find_cheapest(t_list **a)
-{
-	t_list	*tmp;
-	t_list	*cur;
-
-	tmp = *a;
-	cur = tmp;
-	while (tmp)
+		&& target->position > ft_lstsize(*b) / 2)
 	{
-		if (tmp->cheap < cur->cheap)
-			cur = tmp;
-		tmp = tmp->next;
+		if (!loop_rrr(a, b, cur, target))
+			return (0);
 	}
-	return (cur);
+	else if (cur->position <= ft_lstsize(*a) / 2
+		&& target->position <= ft_lstsize(*b) / 2)
+	{
+		if (!loop_rr(a, b, cur, target))
+			return (0);
+	}
+	else
+	{
+		if (!loopsingle(a, b, cur, target))
+			return (0);
+	}
+	return (1);
 }
 
-void	move_cheapest(t_list **a, t_list **b)
+int	move_cheapest(t_list **a, t_list **b)
 {
 	t_list	*target;
 	t_list	*curr;
 
 	curr = find_cheapest(a);
-	target = find_target(curr->index, b);
+	if (is_min(b, curr->index))
+		target = find_target((find_max(b) + 1), b);
+	else
+		target = find_target(curr->index, b);
 	ft_set_positions(a);
 	ft_set_positions(b);
-	bring_to_top(a, b, curr, target);
+	if (!bring_top(a, b, curr, target))
+		return (0);
 	pb(a, b);
+	return (1);
 }
-

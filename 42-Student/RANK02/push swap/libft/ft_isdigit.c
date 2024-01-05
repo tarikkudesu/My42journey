@@ -6,11 +6,11 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:42:53 by tamehri           #+#    #+#             */
-/*   Updated: 2023/11/01 19:53:23 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:41:46 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
 int	ft_isdigit(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:56:27 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/04 16:56:00 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 16:24:25 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ unsigned int	steps_needed(t_list **a, t_list **b, t_list **cur)
 {
 	t_list	*target;
 
-	target = find_target((*cur)->index, b);
+	if (is_min(b, (*cur)->index))
+		target = find_target((find_max(b) + 1), b);
+	else
+		target = find_target((*cur)->index, b);
 	return (cost_to_top(a, cur) + cost_to_top(b, &target) + 1);
 }
 
@@ -67,4 +70,20 @@ void	cheap_set(t_list **a, t_list **b)
 		tmp->cheap = steps_needed(a, b, &tmp);
 		tmp = tmp->next;
 	}
+}
+
+t_list	*find_cheapest(t_list **a)
+{
+	t_list	*tmp;
+	t_list	*cur;
+
+	tmp = *a;
+	cur = tmp;
+	while (tmp)
+	{
+		if (tmp->cheap < cur->cheap)
+			cur = tmp;
+		tmp = tmp->next;
+	}
+	return (cur);
 }

@@ -6,11 +6,11 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:26:03 by tamehri           #+#    #+#             */
-/*   Updated: 2023/11/06 14:10:35 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:41:50 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

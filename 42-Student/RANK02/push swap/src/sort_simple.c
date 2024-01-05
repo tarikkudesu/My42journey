@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:12:31 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/04 14:57:04 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 11:03:59 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_min(t_list **a)
 
 void	ft_sort3(t_list **a)
 {
+	ft_set_positions(a);
 	ft_index(a);
 	if (0 == (*a)->index && 1 != (*a)->next->index)
 	{
@@ -56,6 +57,7 @@ void	ft_sort4(t_list **stack_a, t_list **stack_b)
 {
 	int	min;
 
+	ft_set_positions(stack_a);
 	ft_index(stack_a);
 	min = ft_min(stack_a);
 	if (3 == min)
@@ -73,6 +75,7 @@ void	ft_sort5(t_list **stack_a, t_list **stack_b)
 {
 	int	min;
 
+	ft_set_positions(stack_a);
 	min = ft_min(stack_a);
 	if (4 == min)
 		rra(stack_a);
