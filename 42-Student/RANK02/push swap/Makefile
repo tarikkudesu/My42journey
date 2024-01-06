@@ -1,7 +1,7 @@
 SRC = mand/src/push_swap.c mand/src/sort_stack.c mand/src/cheap_set.c mand/src/sort_algo.c mand/src/sort_simple.c \
+	  mand/operations/swap.c mand/operations/push.c mand/operations/rotate.c mand/operations/reverse_rotate.c \
 	  mand/utils/check_args.c mand/utils/lists.c \
-	  mand/libft/ft_atoi.c mand/libft/ft_isdigit.c mand/libft/ft_split.c mand/libft/ft_putstr_fd.c \
-	  mand/operations/swap.c mand/operations/push.c mand/operations/rotate.c mand/operations/reverse_rotate.c
+	  mand/libft/libft.c mand/libft/ft_split.c \
 
 SRC_B = bonus/checker.c bonus/sort_check.c bonus/push.c bonus/swap.c bonus/rotate.c bonus/reverse_rotate.c \
 		bonus/libft.c bonus/lists.c bonus/ft_split.c bonus/error.c bonus/get_next_line.c

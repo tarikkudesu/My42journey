@@ -6,11 +6,26 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:40:29 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/05 10:41:28 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/06 12:55:58 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s || fd < 0)
+		return ;
+	while (*s)
+		write(fd, s++, 1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 int	ft_isspace(char c)
 {
