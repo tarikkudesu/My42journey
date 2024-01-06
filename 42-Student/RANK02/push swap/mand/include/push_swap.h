@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:47:43 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/05 16:47:07 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/06 11:56:40 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@
 # include <stdlib.h>
 # include <limits.h>
 
-// Remember to remove this
-# include <stdio.h>
+typedef struct s_list	t_list;
 
-typedef struct s_list
+struct s_list
 {
 	int				data;
 	unsigned int	index;
 	unsigned int	cheap;
 	unsigned int	position;
-	struct s_list	*next;
-	struct s_list	*previous;
-}	t_list;
+	t_list			*next;
+};
 
 int				ft_isdigit(int c);
 long			ft_atoi(const char *str);

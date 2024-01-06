@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:36:08 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/02 14:50:12 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/06 10:06:07 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	sa(t_list **a)
 	if (!ft_swap(a))
 		return (0);
 	ft_putstr_fd("sa\n", 1);
-	return (0);
+	return (1);
 }
 
 int	sb(t_list **b)
@@ -41,7 +41,7 @@ int	sb(t_list **b)
 	if (!ft_swap(b))
 		return (0);
 	ft_putstr_fd("sb\n", 1);
-	return (0);
+	return (1);
 }
 
 int	ss(t_list **a, t_list **b)

@@ -6,7 +6,7 @@
 /*   By: tamehri <tamehri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:18:27 by tamehri           #+#    #+#             */
-/*   Updated: 2024/01/05 09:58:21 by tamehri          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:08:00 by tamehri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_list	*ft_lstnew(int data)
 		return (NULL);
 	head->data = data;
 	head->next = NULL;
-	head->previous = NULL;
 	return (head);
 }
 
@@ -40,8 +39,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
-	new->previous = temp;
-	(*lst)->previous = new;
 }
 
 void	ft_lstclear(t_list **lst)
